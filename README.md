@@ -4,4 +4,4 @@ My first Esri JS Map
 
 ## description 
 
-Test
+My first Esri JS map accesing AGOL
