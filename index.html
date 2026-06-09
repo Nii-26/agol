@@ -86,8 +86,9 @@
         };
 
         const airportLayer = new FeatureLayer({
-          url: airportsLayerUrl,
-          renderer: airportRenderer
+          url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports/FeatureServer",
+          renderer: airportRenderer,
+          definitionExpression: "Fac_Type = 'AIRPORT'"
         });
 
         map.add(airportLayer);
