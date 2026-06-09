@@ -32,6 +32,39 @@
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+
+        const graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
+
+        const point = {
+          type: "point",
+          longitude: -97.74035,
+          latitude: 30.27466
+        };
+
+        const simpleMarkerSymbol = {
+          type: "simple-marker",
+          color: [0, 0, 139], // Color of blues rock
+          outline: {
+            color: [255, 255, 255], // White
+            width: 1
+          },
+          size: "16px"
+        };
+
+        const pointGraphic = new Graphic({
+          geometry: point,
+          symbol: simpleMarkerSymbol,
+          attributes: {
+            Name: "Texas State Capitol"
+          },
+          popupTemplate: {
+            title: "{Name}",
+            content: "The Texas State Capitol is located in Austin, Texas."
+          }
+        });
+
+        graphicsLayer.add(pointGraphic);
     });
   </script>
 
