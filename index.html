@@ -12,10 +12,10 @@
 
   <!-- Adding the modules, API key, and map constant needed for a full screen map app -->
   <script>
-  
-    require([
-     "esri/config",
-      "esri/Map",
+    document.addEventListener("DOMContentLoaded", function() {
+      require([
+       "esri/config",
+        "esri/Map",
       "esri/views/MapView",
       "esri/Graphic",  
       "esri/layers/GraphicsLayer",
@@ -150,6 +150,7 @@
         });
 
         map.add(usaeduLayer);
+      });
     });
   </script>
 
