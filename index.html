@@ -73,6 +73,24 @@
         graphicsLayer.add(pointGraphic);
 
         const airportsLayerUrl = "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Airports_NA/FeatureServer";
+        const airportIconUrl = "https://raw.githubusercontent.com/Nii-26/agol/main/local_airport_24dp_1F1F1F.png"; // GitHub icon source
+
+        const airportRenderer = {
+          type: "simple",
+          symbol: {
+            type: "picture-marker",
+            url: airportIconUrl,
+            width: "18px",
+            height: "18px"
+          }
+        };
+
+        const airportLayer = new FeatureLayer({
+          url: airportsLayerUrl,
+          renderer: airportRenderer
+        });
+
+        map.add(airportLayer);
 
         const popupLaw = {
           title: "{NAME}",
