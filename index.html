@@ -74,12 +74,17 @@
 
         const popupLaw = {
           title: "{NAME}",
-          content: "<b>Name:</b> {NAME}<br><b>Address:</b> {ADDRESS}"
+          content: "<div style=\"font-family: Arial, Helvetica, sans-serif;\">"
+            + "<p style=\"margin:0 0 6px 0;\"><b>Address:</b> {ADDRESS}</p>"
+            + "<p style=\"margin:0 0 6px 0;\"><b>City/State:</b> {CITY}, {STATE} {ZIPCODE}</p>"
+            + "<p style=\"margin:0 0 6px 0;\"><b>Permanent ID:</b> {PERMANENT_IDENTIFIER}</p>"
+            + "<p style=\"margin:0;\"><a target=\"_blank\" href=\"https://www.google.com/maps/search/{ADDRESS}\">Open in Google Maps</a></p>"
+            + "</div>"
         };
 
         const usaeduLayer = new FeatureLayer({
           url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Structures_Law_Enforcement_v1/FeatureServer",
-          outFields: ["NAME", "ADDRESS"],
+          outFields: ["NAME", "ADDRESS", "CITY", "STATE", "ZIPCODE", "PERMANENT_IDENTIFIER"],
           popupTemplate: popupLaw
         });
 
@@ -96,6 +101,19 @@
       margin: 0;
       height: 100%;
       width: 100%;
+    }
+    /* Popup styling: rounded corners and subtle shadow */
+    .esri-popup__main-container,
+    .esri-popup__wrapper {
+      border-radius: 10px !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35) !important;
+      overflow: hidden;
+    }
+    .esri-popup__content {
+      border-radius: 8px !important;
+    }
+    .esri-popup__header {
+      border-bottom: 1px solid rgba(0,0,0,0.06) !important;
     }
   </style>
 
